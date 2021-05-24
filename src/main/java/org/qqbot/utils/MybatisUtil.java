@@ -4,6 +4,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.miraiboot.annotation.AutoInit;
 import org.qqbot.mapper.BaseMapper;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author diyigemt
  * mybatis工具类
  */
+@AutoInit
 public class MybatisUtil {
 	// 全局mybatis工厂 官方文档推荐只有一个
 	private static SqlSessionFactory factory;

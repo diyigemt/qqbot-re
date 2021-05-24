@@ -20,7 +20,6 @@ import org.qqbot.utils.HttpUtil;
 
 import java.io.File;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.qqbot.constant.ConstantImage.FILE_NAME_HNG;
 import static org.qqbot.constant.ConstantSaucenao.DBIndex;

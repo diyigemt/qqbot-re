@@ -7,7 +7,7 @@ import org.qqbot.entity.DiceMessageItem;
 import java.util.List;
 
 @Mapper
-public interface DiceMapper {
+public interface DiceMapper extends BaseMapper {
 
 	int insertDiceLog(DiceLogItem item);
 
