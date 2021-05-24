@@ -33,6 +33,7 @@ public class CommandSearchImage {
 	public void searchImage(MessageEventPack eventPack, PreProcessorData data) {
 		List<Image> images = eventPack.getMessageByType(Image.class);
 		if (images.size() == 0) {
+			eventPack.reply("图呢");
 			eventPack.onNextNow(new EventHandlerNext() {
 				@Override
 				public ListeningStatus onNext(MessageEventPack messageEventPack, PreProcessorData preProcessorData) {
@@ -41,15 +42,16 @@ public class CommandSearchImage {
 						messageEventPack.reply("还是没有, 停了");
 						return ListeningStatus.STOPPED;
 					}
-					return null;
+					handlerResult(messageEventPack, messageByType);
+					return ListeningStatus.STOPPED;
 				}
-
 				@Override
 				public void onTimeOut(MessageEventPack eventPack, PreProcessorData data) {
 					eventPack.reply("超时, 停了");
 				}
 			}, data, 10 * 1000L, -1);
 		}
+		handlerResult(eventPack, images);
 	}
 
 	private void handlerResult(MessageEventPack eventPack, List<Image> images) {
@@ -132,5 +134,6 @@ public class CommandSearchImage {
 				.append("\nurl: ")
 				.append(data.getExt_urls().get(0))
 				.build();
+		eventPack.reply(build);
 	}
 }
