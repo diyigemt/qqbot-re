@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 /**
  * 根据参数得到骰子结果字符串
- * @author HayTmey
+ * @author Haythem
  */
 public class Dice {
 
