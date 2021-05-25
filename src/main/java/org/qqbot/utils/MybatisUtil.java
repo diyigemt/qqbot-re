@@ -1,10 +1,10 @@
 package org.qqbot.utils;
 
+import net.diyigemt.miraiboot.annotation.AutoInit;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.miraiboot.annotation.AutoInit;
 import org.qqbot.mapper.BaseMapper;
 
 import java.io.IOException;

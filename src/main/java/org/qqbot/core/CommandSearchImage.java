@@ -1,17 +1,17 @@
 package org.qqbot.core;
 
+import net.diyigemt.miraiboot.annotation.EventHandler;
+import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.entity.MessageEventPack;
+import net.diyigemt.miraiboot.entity.PreProcessorData;
+import net.diyigemt.miraiboot.interfaces.EventHandlerNext;
+import net.diyigemt.miraiboot.utils.FileUtil;
 import net.mamoe.mirai.Mirai;
 import net.mamoe.mirai.event.ListeningStatus;
 import net.mamoe.mirai.message.data.Image;
 import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.message.data.MessageChainBuilder;
 import net.mamoe.mirai.utils.ExternalResource;
-import org.miraiboot.annotation.EventHandler;
-import org.miraiboot.annotation.EventHandlerComponent;
-import org.miraiboot.entity.MessageEventPack;
-import org.miraiboot.entity.PreProcessorData;
-import org.miraiboot.interfaces.EventHandlerNext;
-import org.miraiboot.utils.FileUtil;
 import org.qqbot.entity.SaucenaoDataItem;
 import org.qqbot.entity.SaucenaoHeaderItem;
 import org.qqbot.entity.SaucenaoResult;

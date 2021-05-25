@@ -1,9 +1,9 @@
 package org.qqbot.core;
 
-import org.miraiboot.annotation.EventHandler;
-import org.miraiboot.annotation.EventHandlerComponent;
-import org.miraiboot.entity.MessageEventPack;
-import org.miraiboot.entity.PreProcessorData;
+import net.diyigemt.miraiboot.annotation.EventHandler;
+import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.entity.MessageEventPack;
+import net.diyigemt.miraiboot.entity.PreProcessorData;
 import org.qqbot.entity.JokeLibItem;
 import org.qqbot.mapper.JokeMapper;
 import org.qqbot.utils.MybatisUtil;

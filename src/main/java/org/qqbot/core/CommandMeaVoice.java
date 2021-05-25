@@ -1,11 +1,11 @@
 package org.qqbot.core;
 
-import org.miraiboot.annotation.EventHandler;
-import org.miraiboot.annotation.EventHandlerComponent;
-import org.miraiboot.entity.HttpProperties;
-import org.miraiboot.entity.MessageEventPack;
-import org.miraiboot.entity.PreProcessorData;
-import org.miraiboot.utils.SendMessageLib;
+import net.diyigemt.miraiboot.annotation.EventHandler;
+import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.entity.HttpProperties;
+import net.diyigemt.miraiboot.entity.MessageEventPack;
+import net.diyigemt.miraiboot.entity.PreProcessorData;
+import net.diyigemt.miraiboot.utils.SendMessageLib;
 import org.qqbot.constant.ConstantHttp;
 import org.qqbot.constant.ConstantVoice;
 import org.qqbot.entity.VoiceInfoItem;

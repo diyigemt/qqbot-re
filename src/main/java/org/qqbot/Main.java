@@ -1,7 +1,7 @@
 package org.qqbot;
 
-import org.miraiboot.annotation.MiraiBootApplication;
-import org.miraiboot.autoconfig.MiraiApplication;
+import net.diyigemt.miraiboot.annotation.MiraiBootApplication;
+import net.diyigemt.miraiboot.autoconfig.MiraiApplication;
 
 @MiraiBootApplication
 public class Main {

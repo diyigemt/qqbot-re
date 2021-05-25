@@ -1,11 +1,11 @@
 package org.qqbot.core;
 
-import org.miraiboot.annotation.EventHandler;
-import org.miraiboot.annotation.EventHandlerComponent;
-import org.miraiboot.annotation.MessageFilter;
-import org.miraiboot.constant.MessageFilterMatchType;
-import org.miraiboot.entity.MessageEventPack;
-import org.miraiboot.entity.PreProcessorData;
+import net.diyigemt.miraiboot.annotation.EventHandler;
+import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.annotation.MessageFilter;
+import net.diyigemt.miraiboot.constant.MessageFilterMatchType;
+import net.diyigemt.miraiboot.entity.MessageEventPack;
+import net.diyigemt.miraiboot.entity.PreProcessorData;
 import org.qqbot.entity.DiceLogItem;
 import org.qqbot.entity.DiceMessageItem;
 import org.qqbot.entity.DiceResultItem;
@@ -13,7 +13,6 @@ import org.qqbot.function.Dice;
 import org.qqbot.mapper.DiceMapper;
 import org.qqbot.utils.MybatisUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
