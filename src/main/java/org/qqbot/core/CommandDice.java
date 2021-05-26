@@ -24,16 +24,19 @@ import java.util.regex.Pattern;
 @EventHandlerComponent
 public class CommandDice {
 
-	private static final Pattern dicePattern = Pattern.compile("^([0-9]+)[dD*]([0-9]+)");
+	private static final Pattern dicePattern = Pattern.compile("([0-9]+)[dD*]([0-9]+)");
 
 	@EventHandler(isAny = true)
-	@MessageFilter(value = "^([0-9]+)[dD*]([0-9]+)", matchType = MessageFilterMatchType.REGEX_FIND)
+	@MessageFilter(value = "([0-9]+)[dD*]([0-9]+)", matchType = MessageFilterMatchType.REGEX_FIND, isAt = true)
 	public void dice(MessageEventPack eventPack, PreProcessorData data) {
 		String command = data.getCommandText();
 		Matcher matcher = dicePattern.matcher(command);
 		List<String> args = data.getArgs();
-		if (args == null || args.size() > 2) {
+		if (args == null) {
 			handleErrorArgs(eventPack);
+		}
+		args.remove("");
+		if (args.size() > 2) {
 			return;
 		}
 		if (args.size() == 2 && args.get(1).equals("log")) {
@@ -43,7 +46,7 @@ public class CommandDice {
 		String senderId = String.valueOf(eventPack.getSenderId());
 		DiceResultItem resultItem = Dice.getRoll(args.get(0), eventPack.getSenderName(), senderId);
 		List<DiceMessageItem> messageItems = MybatisUtil.getInstance().getListData(DiceMapper.class, DiceMessageItem.class, "getDiceMessage", resultItem.getResultSum());
-		if (messageItems.size() == 0) {
+		if (messageItems == null || messageItems.size() == 0) {
 			eventPack.reply(resultItem.toString());
 			return;
 		}

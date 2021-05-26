@@ -11,10 +11,10 @@ import net.mamoe.mirai.message.data.MessageSource;
 @EventHandlerComponent
 public class MessageRecall {
   @EventHandler(isAny = true)
-  @MessageFilter(groups = {"827480007", "1002484182"})
+  @MessageFilter(groups = {"827480007"})
   public void recallMessage(MessageEventPack eventPack, PreProcessorData data) {
     long senderId = eventPack.getSenderId();
-    if (senderId == 1055651425L || senderId == 1328343252L) {
+    if (senderId == 1055651425L) {
       MessageSource messageSource = eventPack.getMessage().get(MessageSource.Key);
       Mirai.getInstance().recallMessage(eventPack.getBot(), messageSource);
     }

@@ -2,6 +2,7 @@ package org.qqbot.core;
 
 import net.diyigemt.miraiboot.annotation.EventHandler;
 import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.annotation.MessageFilter;
 import net.diyigemt.miraiboot.entity.HttpProperties;
 import net.diyigemt.miraiboot.entity.MessageEventPack;
 import net.diyigemt.miraiboot.entity.PreProcessorData;
@@ -18,6 +19,7 @@ import java.util.Random;
 public class CommandMeaVoice{
 
 	@EventHandler(target = "咩")
+	@MessageFilter(isAt = true)
 	public void MeaVoice(MessageEventPack eventPack, PreProcessorData data){
 		if(!eventPack.isGroup()){
 			eventPack.reply("当前功能仅限群组使用");

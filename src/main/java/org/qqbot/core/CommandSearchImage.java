@@ -2,6 +2,7 @@ package org.qqbot.core;
 
 import net.diyigemt.miraiboot.annotation.EventHandler;
 import net.diyigemt.miraiboot.annotation.EventHandlerComponent;
+import net.diyigemt.miraiboot.annotation.MessageFilter;
 import net.diyigemt.miraiboot.entity.MessageEventPack;
 import net.diyigemt.miraiboot.entity.PreProcessorData;
 import net.diyigemt.miraiboot.interfaces.EventHandlerNext;
@@ -31,6 +32,7 @@ import static org.qqbot.constant.ConstantSetting.SETTING_ALLOW_R18;
 public class CommandSearchImage {
 
 	@EventHandler(target = "搜图", start = "/")
+	@MessageFilter(isAt = true)
 	public void searchImage(MessageEventPack eventPack, PreProcessorData data) {
 		List<Image> images = eventPack.getMessageByType(Image.class);
 		if (images.size() == 0) {
@@ -51,6 +53,7 @@ public class CommandSearchImage {
 					eventPack.reply("超时, 停了");
 				}
 			}, data, 30 * 1000L, -1);
+			return;
 		}
 		handlerResult(eventPack, images);
 	}
