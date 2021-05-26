@@ -12,5 +12,6 @@ miraiboot:
     network: false
     eventStatus: false
   alias:
+    /来个乐子: "/乐"
   configs: # 全局配置
-    DEFAULT_COMMAND_START: ""
+    DEFAULT_COMMAND_START: "/"
