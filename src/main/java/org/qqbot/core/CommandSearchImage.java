@@ -6,6 +6,7 @@ import net.diyigemt.miraiboot.entity.MessageEventPack;
 import net.diyigemt.miraiboot.entity.PreProcessorData;
 import net.diyigemt.miraiboot.interfaces.EventHandlerNext;
 import net.diyigemt.miraiboot.utils.FileUtil;
+import net.diyigemt.miraiboot.utils.GlobalConfig;
 import net.mamoe.mirai.Mirai;
 import net.mamoe.mirai.event.ListeningStatus;
 import net.mamoe.mirai.message.data.Image;
@@ -24,6 +25,7 @@ import java.util.List;
 import static org.qqbot.constant.ConstantImage.FILE_NAME_HNG;
 import static org.qqbot.constant.ConstantSaucenao.DBIndex;
 import static org.qqbot.constant.ConstantSaucenao.bandDBIndex;
+import static org.qqbot.constant.ConstantSetting.SETTING_ALLOW_R18;
 
 @EventHandlerComponent
 public class CommandSearchImage {
@@ -48,7 +50,7 @@ public class CommandSearchImage {
 				public void onTimeOut(MessageEventPack eventPack, PreProcessorData data) {
 					eventPack.reply("超时, 停了");
 				}
-			}, data, 10 * 1000L, -1);
+			}, data, 30 * 1000L, -1);
 		}
 		handlerResult(eventPack, images);
 	}
@@ -66,8 +68,8 @@ public class CommandSearchImage {
 		SaucenaoHeaderItem header = imageResult.getHeader();
 		int index_id = header.getIndex_id();
 		// 获取r18设置
-//		boolean r18 = SettingUtil.getInstance().getBooleanValue(ConstantSetting.SETTING_ALLOW_R18, false);
-		boolean r18 = true;
+		Object o = GlobalConfig.getInstance().get(SETTING_ALLOW_R18);
+		boolean r18 = Boolean.parseBoolean(o.toString());
 		if (bandDBIndex.containsKey(index_id) && !r18) {
 			File resourceFile = FileUtil.getInstance().getImageResourceFile(FILE_NAME_HNG);
 			// 获取禁止r18图片
