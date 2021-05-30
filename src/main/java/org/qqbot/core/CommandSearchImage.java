@@ -21,6 +21,7 @@ import org.qqbot.function.Saucenao;
 import org.qqbot.utils.HttpUtil;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import static org.qqbot.constant.ConstantImage.FILE_NAME_HNG;
@@ -121,8 +122,13 @@ public class CommandSearchImage {
 		if (pixiv) {
 			String imageSource = Saucenao.constructSourceURL(imageResult);
 			if (imageSource != null) {
-				image = ExternalResource.Companion.uploadAsImage(new HttpUtil().getInputStream(imageSource), eventPack.getSubject());
-				builder.append("已获取原图:\n");
+				InputStream imageStream = new HttpUtil().getInputStream(imageSource);
+				if (imageStream != null) {
+					builder.append("已获取原图:\n");
+					image = ExternalResource.Companion.uploadAsImage(imageStream, eventPack.getSubject());
+				} else {
+					builder.append("获取原图失败:\n");
+				}
 			}
 		}
 		MessageChain build = builder.append(image)
