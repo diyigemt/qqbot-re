@@ -19,7 +19,7 @@ public class Saucenao {
   private static final Pattern resultPattern = Pattern.compile("\"results\": ?(\\[.*])");
   private static final Pattern errorMessagePattern = Pattern.compile("\"message\": ?\"(.*.)\"");
   private static final Pattern statusPattern = Pattern.compile("\"status\": ?(\\d+),\\s*\"r");
-  private static final Pattern multipleImagePatter = Pattern.compile("_p([1-9][0-9]*)_?");
+  private static final Pattern multipleImagePatter = Pattern.compile("_p([0-9]+)_?");
 
   public static String requestImg(String url) throws IOException {
     StringBuilder sb = new StringBuilder();
