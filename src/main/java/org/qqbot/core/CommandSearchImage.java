@@ -38,7 +38,7 @@ public class CommandSearchImage {
 		List<Image> images = eventPack.getMessageByType(Image.class);
 		if (images.size() == 0) {
 			eventPack.reply("图呢");
-			eventPack.onNextNow(new EventHandlerNext() {
+			eventPack.onNext(new EventHandlerNext() {
 				@Override
 				public ListeningStatus onNext(MessageEventPack messageEventPack, PreProcessorData preProcessorData) {
 					List<Image> messageByType = messageEventPack.getMessageByType(Image.class);
@@ -53,7 +53,7 @@ public class CommandSearchImage {
 				public void onTimeOut(MessageEventPack eventPack, PreProcessorData data) {
 					eventPack.reply("超时, 停了");
 				}
-			}, data, 30 * 1000L, -1);
+			},30 * 1000L, -1, data);
 			return;
 		}
 		handlerResult(eventPack, images);
