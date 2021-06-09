@@ -25,8 +25,8 @@ import java.io.InputStream;
 import java.util.List;
 
 import static org.qqbot.constant.ConstantImage.FILE_NAME_HNG;
-import static org.qqbot.constant.ConstantSaucenao.DBIndex;
-import static org.qqbot.constant.ConstantSaucenao.bandDBIndex;
+import static org.qqbot.constant.ConstantSearchImage.DBIndex;
+import static org.qqbot.constant.ConstantSearchImage.bandDBIndex;
 import static org.qqbot.constant.ConstantSetting.SETTING_ALLOW_R18;
 
 @EventHandlerComponent

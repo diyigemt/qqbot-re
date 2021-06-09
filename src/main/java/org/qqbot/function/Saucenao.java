@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.qqbot.constant.ConstantSaucenao.*;
+import static org.qqbot.constant.ConstantSearchImage.*;
 
 public class Saucenao {
   private static final Pattern resultPattern = Pattern.compile("\"results\": ?(\\[.*])");

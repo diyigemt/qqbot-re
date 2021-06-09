@@ -3,7 +3,7 @@ package org.qqbot.constant;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConstantSaucenao {
+public class ConstantSearchImage {
 	public static final String URL_BASE = "https://saucenao.com/search.php";
 	public static final int DB = 999;
 	public static final String KEY = "257501498bb01aebc1c5cd8e659b00a1a8545e8a";
@@ -43,4 +43,7 @@ public class ConstantSaucenao {
 		put(18, "H-Misc");
 		put(38, "H-Misc");
 	}};
+
+	public static final String ASCII2D_BASE_URL = "https://ascii2d.net";
+	public static final String ASCII2D_SEARCH_URL = "https://ascii2d.net/search/multi";
 }
