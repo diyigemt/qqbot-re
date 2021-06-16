@@ -45,5 +45,5 @@ public class ConstantSearchImage {
 	}};
 
 	public static final String ASCII2D_BASE_URL = "https://ascii2d.net";
-	public static final String ASCII2D_SEARCH_URL = "https://ascii2d.net/search/multi";
+	public static final String ASCII2D_SEARCH_URL = "https://ascii2d.net/search/";
 }
