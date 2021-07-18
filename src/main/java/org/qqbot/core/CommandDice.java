@@ -27,7 +27,7 @@ public class CommandDice {
 	private static final Pattern dicePattern = Pattern.compile("([0-9]+)[dD*]([0-9]+)");
 
 	@EventHandler(isAny = true)
-	@MessageFilter(value = "([0-9]+)[dD*]([0-9]+)", matchType = MessageFilterMatchType.REGEX_FIND, isAt = true)
+	@MessageFilter(value = "([0-9]+)[dD*]([0-9]+)", matchType = MessageFilterMatchType.REGEX_FIND)
 	public void dice(MessageEventPack eventPack, PreProcessorData data) {
 		String command = data.getCommandText();
 		Matcher matcher = dicePattern.matcher(command);

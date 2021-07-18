@@ -27,7 +27,11 @@ public class MessageDispatcher {
   public void dispatcherMessage(MessageEventPack eventPack, PreProcessorData data) {
     if (eventPack.isGroup()) return;
     MessageChainBuilder builder = new MessageChainBuilder();
-    builder.append("消息:\n")
+    builder.append("来自")
+        .append(eventPack.getSenderNick())
+        .append("(")
+        .append(String.valueOf(eventPack.getSenderId()))
+        .append(")的消息:\n")
         .append(eventPack.getMessage());
     eventPack.sendFriendMessage(1355247243L, builder.build());
   }
