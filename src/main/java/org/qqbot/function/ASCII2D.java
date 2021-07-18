@@ -13,58 +13,13 @@ import java.io.*;
 import java.net.URL;
 
 public class ASCII2D {
-  public static ASCII2DItem getResUrl(String targetUrl, String... type) {
-    String searchType = "multi";
-    if (type.length != 0) {
-      String tmpType = type[0];
-      switch (tmpType) {
-        case "a": {
-          searchType = "color";
-          break;
-        }
-        case "b": {
-          searchType = "bovw";
-          break;
-        }
-      }
-    }
-    String page = null;
-    InputStream inputStream = null;
-    try {
-      URL url = new URL(ConstantSearchImage.ASCII2D_SEARCH_URL + searchType);
-      HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-      connection.setConnectTimeout(3000);
-      connection.setRequestMethod("POST");
-      connection.setDoInput(true);
-      connection.setDoOutput(true);
-      connection.setRequestProperty("User-agent", ConstantHttp.HEADER_USER_AGENT);
-      connection.setRequestProperty("Content-Type", "multipart/form-data");
-      DataOutputStream dataOutputStream = new DataOutputStream(connection.getOutputStream());
-      dataOutputStream.writeBytes("uri=" + targetUrl);
-      inputStream = connection.getInputStream();
-    } catch (IOException e) {
+  public static ASCII2DItem getRes(String targetUrl) {
+    return getRes(targetUrl, "mutil");
+  }
 
-    }
-    if (inputStream == null) return null;
-    ByteArrayOutputStream out = new ByteArrayOutputStream();
-    try {
-      byte buf[] = new byte[1024];
-      int read = 0;
-      while ((read = inputStream.read(buf)) > 0) {
-        out.write(buf, 0, read);
-      }
-    } catch (IOException e) {
-
-    } finally {
-      if (inputStream != null) {
-        try {
-          inputStream.close();
-        } catch (IOException e) {
-
-        }
-      }
-    }
-    page = out.toString();
+  public static ASCII2DItem getRes(String targetUrl, String type) {
+    String page = getPage(ConstantSearchImage.ASCII2D_SEARCH_URL + type, targetUrl);
+    if (page == null) return null;
     Document parse = Jsoup.parse(page);
     Elements elements = parse.getElementsByClass("item-box");
     if (elements.size() == 0) return null;
@@ -93,5 +48,46 @@ public class ASCII2D {
       }
     }
     return res;
+  }
+
+  private static String getPage(String urlString, String imgString) {
+    String page = null;
+    InputStream inputStream = null;
+    try {
+      URL url = new URL(urlString);
+      HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+      connection.setConnectTimeout(3000);
+      connection.setRequestMethod("POST");
+      connection.setDoInput(true);
+      connection.setDoOutput(true);
+      connection.setRequestProperty("User-agent", ConstantHttp.HEADER_USER_AGENT);
+      connection.setRequestProperty("Content-Type", "multipart/form-data");
+      DataOutputStream dataOutputStream = new DataOutputStream(connection.getOutputStream());
+      dataOutputStream.writeBytes("uri=" + imgString);
+      inputStream = connection.getInputStream();
+    } catch (IOException e) {
+
+    }
+    if (inputStream == null) return null;
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+      byte buf[] = new byte[1024];
+      int read = 0;
+      while ((read = inputStream.read(buf)) > 0) {
+        out.write(buf, 0, read);
+      }
+    } catch (IOException e) {
+
+    } finally {
+      if (inputStream != null) {
+        try {
+          inputStream.close();
+        } catch (IOException e) {
+
+        }
+      }
+    }
+    page = out.toString();
+    return page;
   }
 }

@@ -9,13 +9,9 @@ import net.diyigemt.miraiboot.entity.PreProcessorData;
 import net.mamoe.mirai.message.data.Image;
 import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.message.data.MessageChainBuilder;
-import net.mamoe.mirai.message.data.PlainText;
-import net.mamoe.mirai.utils.ExternalResource;
 import org.qqbot.entity.ASCII2DItem;
 import org.qqbot.function.ASCII2D;
-import org.qqbot.utils.HttpUtil;
 
-import java.io.InputStream;
 import java.util.List;
 
 @EventHandlerComponent
@@ -31,8 +27,7 @@ public class CommandTest {
     }
     Image image = images.get(0);
     String s = Image.queryUrl(image);
-    List<String> args = data.getArgs();
-    ASCII2DItem res = ASCII2D.getResUrl(s, args.isEmpty() ? null : args.get(0));
+    ASCII2DItem res = ASCII2D.getRes(s);
     if (res == null) {
       eventPack.reply("获取结果失败");
       return;
