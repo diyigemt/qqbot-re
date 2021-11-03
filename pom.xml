@@ -50,7 +50,7 @@
 <!--            调试的时候记得改scope-->
             <groupId>net.diyigemt.miraiboot</groupId>
             <artifactId>mirai-boot</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
             <scope>provided</scope>
         </dependency>
 
